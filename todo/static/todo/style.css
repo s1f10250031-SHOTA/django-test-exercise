@@ -1,0 +1,159 @@
+/* Todo Application Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+  padding: 25px 20px;
+  border-radius: 8px;
+  border: 2px solid #64b5f6;
+  box-shadow: 0 4px 15px rgba(100, 181, 246, 0.3);
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+h2 {
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 15px;
+  color: #b0b0b0;
+}
+
+form {
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #3a3a3a;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+input[type="text"],
+input[type="datetime-local"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  font-size: 1em;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="datetime-local"]:focus {
+  outline: none;
+  border-color: #64b5f6;
+  box-shadow: 0 0 5px rgba(100, 181, 246, 0.3);
+}
+
+button {
+  background-color: #444444;
+  color: #e0e0e0;
+  padding: 10px 20px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #555555;
+}
+
+a {
+  color: #64b5f6;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #90caf9;
+  text-decoration: underline;
+}
+
+div.text {
+  background-color: #2a2a2a;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  border-left: 4px solid #64b5f6;
+  border: 1px solid #3a3a3a;
+}
+
+div.text a {
+  color: #64b5f6;
+  font-weight: 500;
+}
+
+ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+ul li {
+  padding: 5px 0;
+  color: #b0b0b0;
+}
+
+ul li:before {
+  content: "→ ";
+  color: #64b5f6;
+  margin-right: 5px;
+}
+
+div a {
+  margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+/* Sort links section */
+div > a {
+  background-color: #3a3a3a;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #e0e0e0;
+  border: 1px solid #4a4a4a;
+}
+
+div > a:hover {
+  background-color: #4a4a4a;
+}
