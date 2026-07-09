@@ -135,3 +135,18 @@ class TodoViewTestCase(TestCase):
         updated_task = Task.objects.get(pk=task.pk)
         self.assertEqual(updated_task.title, 'updated task')
         self.assertEqual(updated_task.due_at, timezone.make_aware(datetime(2024, 8, 1, 12, 0, 0)))
+
+    def test_delete_post_success(self):
+        task = Task(title='task1', due_at=timezone.make_aware(datetime(2024, 7, 1)))
+        task.save()
+        client = Client()
+        response = client.post('/{}/delete'.format(task.pk))
+
+        self.assertEqual(response.status_code, 302)
+        self.assertFalse(Task.objects.filter(pk=task.pk).exists())
+
+    def test_delete_post_fail(self):
+        client = Client()
+        response = client.post('/1/delete')
+
+        self.assertEqual(response.status_code, 404)
