@@ -78,6 +78,18 @@ class TodoViewTestCase(TestCase):
         self.assertEqual(response.templates[0].name, 'todo/index.html')
         self.assertEqual(len(response.context['tasks']), 1)
 
+    def test_index_get_bookmarked_filter(self):
+        task1 = Task(title='task1', bookmarked=True)
+        task1.save()
+        task2 = Task(title='task2', bookmarked=False)
+        task2.save()
+        client = Client()
+        response = client.get('/?filter=bookmarked')
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.templates[0].name, 'todo/index.html')
+        self.assertEqual(list(response.context['tasks']), [task1])
+
     def test_index_get_order_post(self):
         task1 = Task(title='task1', due_at=timezone.make_aware(datetime(2024, 7, 1)))
         task1.save()
