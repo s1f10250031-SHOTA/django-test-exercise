@@ -64,3 +64,13 @@ def close(request, task_id):
     task.completed = True
     task.save()
     return redirect(index)
+
+
+def bookmark(request, task_id):
+    try:
+        task = Task.objects.get(pk=task_id)
+    except Task.DoesNotExist:
+        raise Http404("Task does not exist")
+    task.bookmarked = not task.bookmarked
+    task.save()
+    return redirect(request.META.get('HTTP_REFERER', 'index'))
