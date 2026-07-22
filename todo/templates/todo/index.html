@@ -46,7 +46,11 @@
         {% else %}
         <li>Status: Not Completed</li>
         {% endif %}
+        <li>Bookmark: {% if task.bookmarked %}Bookmarked{% else %}Not bookmarked{% endif %}</li>
       </ul>
+      <a class="bookmark-link" href="{% url 'bookmark' task.id %}">
+        {% if task.bookmarked %}Remove bookmark{% else %}Add bookmark{% endif %}
+      </a>
     </div>
     {% endfor %}
   </body>

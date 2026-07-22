@@ -53,6 +53,12 @@ class TaskModelTestCase(TestCase):
 
         self.assertFalse(task.is_overdue(current))
 
+    def test_bookmark_default_false(self):
+        task = Task(title='task4')
+        task.save()
+
+        self.assertFalse(task.bookmarked)
+
 
 class TodoViewTestCase(TestCase):
     def test_index_get(self):
@@ -168,3 +174,20 @@ class TodoViewTestCase(TestCase):
         response = client.get('/1/close')
 
         self.assertEqual(response.status_code, 404)
+
+    def test_bookmark_toggle(self):
+        task = Task(title='task1', due_at=timezone.make_aware(datetime(2024, 7, 1)))
+        task.save()
+
+        client = Client()
+        response = client.get('/{}/bookmark'.format(task.pk))
+
+        self.assertEqual(response.status_code, 302)
+        updated_task = Task.objects.get(pk=task.pk)
+        self.assertTrue(updated_task.bookmarked)
+
+        response = client.get('/{}/bookmark'.format(task.pk))
+
+        self.assertEqual(response.status_code, 302)
+        updated_task = Task.objects.get(pk=task.pk)
+        self.assertFalse(updated_task.bookmarked)

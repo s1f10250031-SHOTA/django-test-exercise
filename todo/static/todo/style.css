@@ -145,6 +145,19 @@ div a {
   display: inline-block;
 }
 
+.bookmark-link {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background-color: #3c3c3c;
+  border: 1px solid #5a5a5a;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.bookmark-link:hover {
+  background-color: #4a4a4a;
+}
+
 /* Sort links section */
 div > a {
   background-color: #3a3a3a;

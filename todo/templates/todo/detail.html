@@ -21,13 +21,15 @@
       {% else %}
       <li>Status: Not Completed</li>
       {% endif %}
+      <li>Bookmark: {% if task.bookmarked %}Bookmarked{% else %}Not bookmarked{% endif %}</li>
     </ul>
 
     <div>
       <a href="{% url 'index' %}">Top</a>
       | <a href="{% url 'update' task.id %}">Edit</a>
       | <a href="{% url 'delete' task.id %}">Delete</a>
-        <a href="{% url 'close' task.id %}">Close</a>
+      | <a href="{% url 'close' task.id %}">Close</a>
+      | <a href="{% url 'bookmark' task.id %}">{% if task.bookmarked %}Remove bookmark{% else %}Add bookmark{% endif %}</a>
     </div>
   </body>
 
